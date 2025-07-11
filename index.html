@@ -2,51 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home Loan Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Loan Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="card">
-    <h1>Home Loan Calculator</h1>
+  <div class="container">
+    <h1>🏡 Home Loan Calculator</h1>
 
-    <label>House Price (RM)
-      <input type="number" id="price" placeholder="500000" />
-    </label>
+    <div class="card">
+      <div class="input-group">
+        <label>Loan Amount (RM)</label>
+        <input type="number" id="loanAmount" value="500000" />
+      </div>
 
-    <label>Interest Rate (% per year)
-      <input type="number" id="rate" step="0.01" placeholder="4.10" />
-    </label>
+      <div class="input-row">
+        <div class="input-group">
+          <label>Interest Rate (%)</label>
+          <input type="number" id="interestRate" step="0.01" value="4.25" />
+        </div>
+        <div class="input-group">
+          <label>Loan Tenure (Years)</label>
+          <input type="number" id="loanTenure" value="35" />
+        </div>
+      </div>
 
-    <label>Tenure (years)
-      <input type="number" id="years" placeholder="30" />
-    </label>
+      <button onclick="calculate()">Calculate</button>
+    </div>
 
-    <label class="chk">
-      <input type="checkbox" id="firstHome" /> 1st Home Buyer (MOT waived)
-    </label>
-
-    <label class="chk">
-      <input type="checkbox" id="fullLoan" /> Full Loan (include legal fees)
-    </label>
-
-    <button id="btnCalc">Calculate</button>
-
-    <section id="result" hidden>
-      <h2>Results</h2>
-      <table>
-        <tbody>
-          <tr><th>Loan Amount</th><td id="loanAmt"></td></tr>
-          <tr><th>Monthly Repayment</th><td id="monthly"></td></tr>
-          <tr><th>SPA Legal Fee</th><td id="spaFee"></td></tr>
-          <tr><th>MOT / Stamp Duty</th><td id="motFee"></td></tr>
-          <tr><th>Loan Legal Fee</th><td id="loanFee"></td></tr>
-          <tr class="total"><th>Total Cash Needed</th><td id="totalCash"></td></tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
+    <div class="result-card" id="result" hidden>
+      <h2>Repayment Summary</h2>
+      <p class="repayment">RM <span id="monthlyPayment">0.00</span> / month</p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
